@@ -19,7 +19,7 @@ jobs:
           set -x
           files=()
           for f in bin/*; do
-            files+=("-a" "$f")
+            files+=("$f")
           done
           tag_name="${GITHUB_REF##*/}"
-          hub release create "${files[@]}" -m "$tag_name" "$tag_name"
+          gh release create "$tag_name" "${files[@]}"
